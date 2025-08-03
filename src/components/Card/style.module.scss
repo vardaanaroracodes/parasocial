@@ -1,0 +1,477 @@
+.cardContainer{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0px;
+    .card{
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      top: -25%;
+      height: 500px;
+      width: 1000px;
+      border-radius: 16px;
+      padding: 40px;
+      transform-origin: top;
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(239, 68, 68, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #ef4444, #f59e0b, #ef4444);
+        opacity: 0.8;
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 8px;
+        height: 8px;
+        background: radial-gradient(circle, rgba(239, 68, 68, 0.6) 0%, rgba(245, 158, 11, 0.3) 50%, transparent 100%);
+        border-radius: 50%;
+        animation: floatOrb 6s ease-in-out infinite;
+        box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+      }
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #ef4444, #f59e0b, #ef4444);
+        opacity: 0.8;
+      }
+      
+      // Multiple orbs throughout the card
+      .orb1 {
+        position: absolute;
+        top: 40%;
+        left: 15%;
+        width: 6px;
+        height: 6px;
+        background: radial-gradient(circle, rgba(245, 158, 11, 0.7) 0%, rgba(239, 68, 68, 0.4) 50%, transparent 100%);
+        border-radius: 50%;
+        animation: floatOrb2 8s ease-in-out infinite;
+        box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+      }
+      
+      .orb2 {
+        position: absolute;
+        top: 60%;
+        left: 25%;
+        width: 4px;
+        height: 4px;
+        background: radial-gradient(circle, rgba(239, 68, 68, 0.8) 0%, rgba(245, 158, 11, 0.3) 50%, transparent 100%);
+        border-radius: 50%;
+        animation: floatOrb3 7s ease-in-out infinite;
+        box-shadow: 0 0 6px rgba(239, 68, 68, 0.6);
+      }
+      
+      .orb3 {
+        position: absolute;
+        top: 30%;
+        right: 30%;
+        width: 5px;
+        height: 5px;
+        background: radial-gradient(circle, rgba(245, 158, 11, 0.6) 0%, rgba(239, 68, 68, 0.2) 50%, transparent 100%);
+        border-radius: 50%;
+        animation: floatOrb4 9s ease-in-out infinite;
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+      }
+      
+      .orb4 {
+        position: absolute;
+        top: 20%;
+        left: 45%;
+        width: 3px;
+        height: 3px;
+        background: radial-gradient(circle, rgba(239, 68, 68, 0.9) 0%, rgba(245, 158, 11, 0.2) 50%, transparent 100%);
+        border-radius: 50%;
+        animation: floatOrb5 10s ease-in-out infinite;
+        box-shadow: 0 0 4px rgba(239, 68, 68, 0.7);
+      }
+      
+      .orb5 {
+        position: absolute;
+        top: 70%;
+        right: 20%;
+        width: 7px;
+        height: 7px;
+        background: radial-gradient(circle, rgba(245, 158, 11, 0.8) 0%, rgba(239, 68, 68, 0.3) 50%, transparent 100%);
+        border-radius: 50%;
+        animation: floatOrb6 6.5s ease-in-out infinite;
+        box-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
+      }
+      
+      .orb6 {
+        position: absolute;
+        top: 50%;
+        left: 35%;
+        width: 4px;
+        height: 4px;
+        background: radial-gradient(circle, rgba(239, 68, 68, 0.7) 0%, rgba(245, 158, 11, 0.4) 50%, transparent 100%);
+        border-radius: 50%;
+        animation: floatOrb7 11s ease-in-out infinite;
+        box-shadow: 0 0 6px rgba(239, 68, 68, 0.5);
+      }
+      
+      .orb7 {
+        position: absolute;
+        top: 25%;
+        right: 45%;
+        width: 5px;
+        height: 5px;
+        background: radial-gradient(circle, rgba(245, 158, 11, 0.5) 0%, rgba(239, 68, 68, 0.3) 50%, transparent 100%);
+        border-radius: 50%;
+        animation: floatOrb8 8.5s ease-in-out infinite;
+        box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+      }
+      
+      .orb8 {
+        position: absolute;
+        top: 80%;
+        left: 10%;
+        width: 3px;
+        height: 3px;
+        background: radial-gradient(circle, rgba(239, 68, 68, 0.6) 0%, rgba(245, 158, 11, 0.3) 50%, transparent 100%);
+        border-radius: 50%;
+        animation: floatOrb9 7.5s ease-in-out infinite;
+        box-shadow: 0 0 5px rgba(239, 68, 68, 0.4);
+      }
+      
+      .orb9 {
+        position: absolute;
+        top: 35%;
+        left: 55%;
+        width: 6px;
+        height: 6px;
+        background: radial-gradient(circle, rgba(245, 158, 11, 0.6) 0%, rgba(239, 68, 68, 0.2) 50%, transparent 100%);
+        border-radius: 50%;
+        animation: floatOrb10 9.5s ease-in-out infinite;
+        box-shadow: 0 0 9px rgba(245, 158, 11, 0.5);
+      }
+      
+      .orb10 {
+        position: absolute;
+        top: 65%;
+        right: 35%;
+        width: 4px;
+        height: 4px;
+        background: radial-gradient(circle, rgba(239, 68, 68, 0.8) 0%, rgba(245, 158, 11, 0.3) 50%, transparent 100%);
+        border-radius: 50%;
+        animation: floatOrb11 6s ease-in-out infinite;
+        box-shadow: 0 0 7px rgba(239, 68, 68, 0.6);
+      }
+      
+      .orb11 {
+        position: absolute;
+        top: 45%;
+        right: 15%;
+        width: 5px;
+        height: 5px;
+        background: radial-gradient(circle, rgba(245, 158, 11, 0.7) 0%, rgba(239, 68, 68, 0.2) 50%, transparent 100%);
+        border-radius: 50%;
+        animation: floatOrb12 10.5s ease-in-out infinite;
+        box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+      }
+      
+      .orb12 {
+        position: absolute;
+        top: 15%;
+        left: 25%;
+        width: 4px;
+        height: 4px;
+        background: radial-gradient(circle, rgba(239, 68, 68, 0.7) 0%, rgba(245, 158, 11, 0.3) 50%, transparent 100%);
+        border-radius: 50%;
+        animation: floatOrb13 7.8s ease-in-out infinite;
+        box-shadow: 0 0 6px rgba(239, 68, 68, 0.5);
+      }
+      
+      @keyframes floatOrb {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.6;
+        }
+        25% {
+          transform: translate(-10px, -15px) scale(1.1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: translate(-5px, -25px) scale(0.9);
+          opacity: 0.4;
+        }
+        75% {
+          transform: translate(5px, -10px) scale(1.05);
+          opacity: 0.7;
+        }
+      }
+      
+      @keyframes floatOrb2 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.5;
+        }
+        33% {
+          transform: translate(15px, -20px) scale(1.2);
+          opacity: 0.8;
+        }
+        66% {
+          transform: translate(-10px, -10px) scale(0.8);
+          opacity: 0.3;
+        }
+      }
+      
+      @keyframes floatOrb3 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.6;
+        }
+        50% {
+          transform: translate(20px, -15px) scale(1.3);
+          opacity: 0.9;
+        }
+      }
+      
+      @keyframes floatOrb4 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.4;
+        }
+        25% {
+          transform: translate(-15px, -25px) scale(1.1);
+          opacity: 0.7;
+        }
+        50% {
+          transform: translate(10px, -5px) scale(0.9);
+          opacity: 0.3;
+        }
+        75% {
+          transform: translate(-5px, -20px) scale(1.05);
+          opacity: 0.6;
+        }
+      }
+      
+      @keyframes floatOrb5 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.6;
+        }
+        50% {
+          transform: translate(12px, -18px) scale(1.4);
+          opacity: 0.9;
+        }
+      }
+      
+      @keyframes floatOrb6 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.7;
+        }
+        33% {
+          transform: translate(-18px, -12px) scale(1.2);
+          opacity: 0.9;
+        }
+        66% {
+          transform: translate(8px, -22px) scale(0.8);
+          opacity: 0.4;
+        }
+      }
+      
+      @keyframes floatOrb7 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.5;
+        }
+        25% {
+          transform: translate(15px, -8px) scale(1.1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: translate(-10px, -15px) scale(0.9);
+          opacity: 0.3;
+        }
+        75% {
+          transform: translate(5px, -25px) scale(1.05);
+          opacity: 0.6;
+        }
+      }
+      
+      @keyframes floatOrb8 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.4;
+        }
+        50% {
+          transform: translate(-20px, -10px) scale(1.3);
+          opacity: 0.8;
+        }
+      }
+      
+      @keyframes floatOrb9 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.5;
+        }
+        33% {
+          transform: translate(10px, -20px) scale(1.2);
+          opacity: 0.8;
+        }
+        66% {
+          transform: translate(-15px, -5px) scale(0.8);
+          opacity: 0.3;
+        }
+      }
+      
+      @keyframes floatOrb10 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.6;
+        }
+        25% {
+          transform: translate(-12px, -18px) scale(1.1);
+          opacity: 0.9;
+        }
+        50% {
+          transform: translate(18px, -8px) scale(0.9);
+          opacity: 0.4;
+        }
+        75% {
+          transform: translate(-8px, -22px) scale(1.05);
+          opacity: 0.7;
+        }
+      }
+      
+      @keyframes floatOrb11 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.7;
+        }
+        50% {
+          transform: translate(22px, -12px) scale(1.2);
+          opacity: 0.9;
+        }
+      }
+      
+      @keyframes floatOrb12 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.6;
+        }
+        33% {
+          transform: translate(-18px, -15px) scale(1.1);
+          opacity: 0.8;
+        }
+        66% {
+          transform: translate(12px, -8px) scale(0.9);
+          opacity: 0.3;
+        }
+      }
+      
+      @keyframes floatOrb13 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.5;
+        }
+        25% {
+          transform: translate(15px, -20px) scale(1.2);
+          opacity: 0.8;
+        }
+        50% {
+          transform: translate(-10px, -10px) scale(0.8);
+          opacity: 0.3;
+        }
+        75% {
+          transform: translate(20px, -15px) scale(1.05);
+          opacity: 0.6;
+        }
+      }
+              h2{
+          text-align: center;
+          margin: 0px;
+          font-size: 32px;
+          font-family: var(--font-geist-sans);
+          font-weight: 700;
+          background: linear-gradient(135deg, #ef4444, #f59e0b);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          letter-spacing: -0.02em;
+        }
+      .body{
+        display: flex;
+        height: 100%;
+        margin-top: 50px;
+        gap: 50px;
+  
+        .description{
+          width: 40%;
+          position: relative;
+          top: 10%;
+          p{
+            font-size: 18px;
+            font-family: var(--font-geist-sans);
+            line-height: 1.7;
+            color: var(--muted-foreground);
+            font-weight: 500;
+            
+          }
+          span{
+            display: none;
+          }
+        }
+  
+        .imageContainer{
+          position: relative;
+          width: 60%;
+          height: 100%;
+          border-radius: 12px;
+          overflow: hidden;
+          background: var(--muted);
+          border: 1px solid var(--border);
+          box-shadow: 
+            0 4px 16px rgba(239, 68, 68, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(245, 158, 11, 0.05));
+            pointer-events: none;
+            z-index: 1;
+          }
+          
+          .inner{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+          }
+          img{
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }

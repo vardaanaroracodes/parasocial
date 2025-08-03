@@ -6,6 +6,7 @@ import { HaloFeatures } from "@/components/cardGrid";
 import HandWrittenTitleDemo from "@/components/titlestext";
 import RevealImageListDemo from "@/components/services";
 import { CenteredLogoDemo } from "@/components/ui/centered-logo-demo";
+import CardsFlow from "@/components/cards-flow";
 const text1 = {
   title: "Who Are We ?",
   text: "Founded in 2025, Parasocial is an influencer-first agency, and a content production company based out of India. Embodying an Influencer & Social First Approach @ Parasocial we embrace all the complexities and deliver stories to our clients with redefining narratives distilled into brief and powerful messages for the brand.",
@@ -83,7 +84,8 @@ export default function Home() {
      subheading="Influencer-first approach with authentic storytelling and social-age brand building"
      cards={paraInfluenceCards}
    /> */}
-   <CenteredLogoDemo />
+   {/* <CenteredLogoDemo /> */}
+   <CardsFlow/>
   {/* <Gallery4Demo/> */}
    <RevealImageListDemo/>
    <DemoOne/>
