@@ -5,6 +5,7 @@ import { CardCurtainRevealDemo } from "@/components/landingcards";
 import { HaloFeatures } from "@/components/cardGrid";
 import HandWrittenTitleDemo from "@/components/titlestext";
 import RevealImageListDemo from "@/components/services";
+import { CenteredLogoDemo } from "@/components/ui/centered-logo-demo";
 const text1 = {
   title: "Who Are We ?",
   text: "Founded in 2025, Parasocial is an influencer-first agency, and a content production company based out of India. Embodying an Influencer & Social First Approach @ Parasocial we embrace all the complexities and deliver stories to our clients with redefining narratives distilled into brief and powerful messages for the brand.",
@@ -69,17 +70,20 @@ export default function Home() {
   return (
    <>
    <HeroSection/>
-   <HandWrittenTitleDemo title="Why Us" triggerOnScroll={true} />
-   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-    {CardCurtainRevealDemo(text1.text, text1.title)}
-    {CardCurtainRevealDemo(text2.text, text2.title)}
-    {CardCurtainRevealDemo(text3.text, text3.title)}
+   <HandWrittenTitleDemo title="Why Us" triggerOnScroll={true}/>
+   <div className="flex justify-center mt-6">
+     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+       {CardCurtainRevealDemo(text1.text, text1.title)}
+       {CardCurtainRevealDemo(text2.text, text2.title)}
+       {CardCurtainRevealDemo(text3.text, text3.title)}
+     </div>
    </div>
-   <HaloFeatures 
+   {/* <HaloFeatures 
      heading="What Makes Us Different"
      subheading="Influencer-first approach with authentic storytelling and social-age brand building"
      cards={paraInfluenceCards}
-   />
+   /> */}
+   <CenteredLogoDemo />
   {/* <Gallery4Demo/> */}
    <RevealImageListDemo/>
    <DemoOne/>

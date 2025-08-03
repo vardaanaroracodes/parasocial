@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button"
 
 export const CardCurtainRevealDemo = (text: string,  title: string) => {
   return (
-    <div className="min-h-screen place-content-center place-items-center">
+    <div className="place-content-center place-items-center">
       <CardCurtainReveal className="h-[560px] w-96 border border-zinc-100 bg-zinc-950 text-zinc-50 shadow">
         <CardCurtainRevealBody className="">
           <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">
