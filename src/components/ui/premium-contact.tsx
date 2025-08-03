@@ -115,7 +115,7 @@ export function PremiumContact() {
       y: 0,
       transition: { 
         duration: 0.8, 
-        ease: [0.23, 0.86, 0.39, 0.96] 
+        ease: "easeOut" as const
       }
     }
   };
@@ -229,7 +229,7 @@ export function PremiumContact() {
               <Sparkles className="h-4 w-4 text-yellow-300" />
             </motion.div>
             <span className="text-sm font-medium text-white/80">
-              ✨ Let's Connect
+              ✨ Let&apos;s Connect
             </span>
             <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
           </motion.div>
@@ -264,7 +264,7 @@ export function PremiumContact() {
             className="text-xl sm:text-2xl text-white/60 max-w-4xl mx-auto leading-relaxed"
             variants={fadeInUp}
           >
-            Ready to transform your business with AI? Let's start a conversation about your goals and how we can help you achieve them.
+            Ready to transform your business with AI? Let&apos;s start a conversation about your goals and how we can help you achieve them.
           </motion.p>
         </motion.div>
 
@@ -302,7 +302,7 @@ export function PremiumContact() {
             <div>
               <h3 className="text-3xl font-bold text-foreground mb-4">Send us a message</h3>
               <p className="text-muted-foreground text-lg">
-                Tell us about your project and we'll get back to you within 24 hours.
+                Tell us about your project and we&apos;ll get back to you within 24 hours.
               </p>
             </div>
 
@@ -442,7 +442,7 @@ export function PremiumContact() {
                   </motion.div>
                   <h3 className="text-2xl font-bold text-foreground mb-4">Message Sent!</h3>
                   <p className="text-muted-foreground text-lg mb-6">
-                    Thank you for reaching out. We'll get back to you within 24 hours.
+                    Thank you for reaching out. We&apos;ll get back to you within 24 hours.
                   </p>
                   <motion.button
                     onClick={() => {
@@ -508,7 +508,7 @@ export function PremiumContact() {
               <h4 className="text-lg font-semibold text-foreground mb-3">Quick Response Guarantee</h4>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 We pride ourselves on rapid response times. All inquiries are typically answered within 2 hours during business hours, 
-                and we'll schedule a call within 24 hours to discuss your project in detail.
+                and we&apos;ll schedule a call within 24 hours to discuss your project in detail.
               </p>
             </motion.div>
           </motion.div>

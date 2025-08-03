@@ -1,8 +1,8 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect, useRef } from "react"
-import { motion, useScroll, useTransform, useInView, useSpring } from "framer-motion"
+import {useRef } from "react"
+import { motion, useScroll, useTransform, useInView } from "framer-motion"
 import { ArrowRight, Sparkles, Star, CheckCircle, Zap } from "lucide-react"
 
 interface InfoItemProps {
@@ -10,10 +10,7 @@ interface InfoItemProps {
   secondaryIcon?: React.ReactNode
   title: string
   description: string
-  variants: {
-    hidden: { opacity: number; y?: number }
-    visible: { opacity: number; y?: number; transition: { duration: number; ease: string } }
-  }
+  variants: any
   delay: number
   direction: "left" | "right"
 }
@@ -114,7 +111,6 @@ export default function CenteredLogoInfo({
     },
   ]
 }: CenteredLogoInfoProps) {
-  const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { once: false, amount: 0.1 })
 
@@ -128,10 +124,6 @@ export default function CenteredLogoInfo({
   const y2 = useTransform(scrollYProgress, [0, 1], [0, 50])
   const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 20])
   const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -20])
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
 
   const containerVariants = {
     hidden: { opacity: 0 },

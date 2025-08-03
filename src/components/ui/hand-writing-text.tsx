@@ -67,10 +67,6 @@ function HandWrittenTitle({
     const padding = 80; // Extra padding around text
     const circleWidth = Math.max(textWidth + padding, 400); // Minimum width
     const circleHeight = 200; // Fixed height for consistency
-    const centerX = circleWidth / 2;
-    const centerY = circleHeight / 2;
-    const radiusX = (circleWidth - 100) / 2; // Ellipse radius X
-    const radiusY = (circleHeight - 60) / 2; // Ellipse radius Y
 
     // Create responsive bezier curve path similar to original
     const createResponsivePath = () => {

@@ -16,9 +16,7 @@ import {
   Award,
   Shield,
   Trophy,
-  Heart,
   Coffee,
-  Lightbulb,
   Instagram,
   Linkedin,
   Twitter,
@@ -28,7 +26,6 @@ import {
 import { motion, useScroll, useTransform, useInView, useSpring } from "framer-motion"
 
 export default function AboutUsSection() {
-  const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
   const statsRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { once: false, amount: 0.1 })
@@ -44,10 +41,6 @@ export default function AboutUsSection() {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, 50])
   const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 20])
   const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -20])
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -65,7 +58,7 @@ export default function AboutUsSection() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.6, ease: "easeOut" as const },
     },
   }
 
@@ -319,8 +312,8 @@ export default function AboutUsSection() {
         {/* Industries Section */}
         <motion.div className="mb-16" variants={itemVariants}>
           <div className="text-center mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Industries We've Conquered</h3>
-            <p className="text-muted-foreground">From Brief to Brag - we've worked with the biggest names</p>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4">Industries We&apos;ve Conquered</h3>
+        <p className="text-muted-foreground">From Brief to Brag - we&apos;ve worked with the biggest names</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {["Broadcast", "FMCG", "Tech", "IT", "QSR", "Startups", "Handsets", "Telecom", "RTE"].map((industry, index) => (
@@ -404,7 +397,7 @@ export default function AboutUsSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
             >
-              Work shouldn't feel like... work.
+              Work shouldn&apos;t feel like... work.
             </motion.p>
 
             <motion.div 
@@ -414,10 +407,10 @@ export default function AboutUsSection() {
               transition={{ delay: 0.9 }}
             >
               <p className="mb-4">
-                We're building the ParaSquad: storytellers, strategists, makers, and doers who live and breathe the Social Age.
+                We&apos;re building the ParaSquad: storytellers, strategists, makers, and doers who live and breathe the Social Age.
               </p>
               <p>
-                Content wizards, culture sponges, pixel-perfect designers, or someone with a skill we didn't know we needed. Let's talk.
+                                  Content wizards, culture sponges, pixel-perfect designers, or someone with a skill we didn&apos;t know we needed. Let&apos;s talk.
               </p>
             </motion.div>
 
@@ -428,7 +421,7 @@ export default function AboutUsSection() {
               transition={{ delay: 1.0 }}
             >
               <p className="text-lg font-semibold mb-2">
-                Work from anywhere (or everywhere). We're cool with IRL, virtual, or hybrid setups.
+                Work from anywhere (or everywhere). We&apos;re cool with IRL, virtual, or hybrid setups.
               </p>
               <p className="text-muted-foreground">
                 Because real talent doesn't punch in, it shows up.
@@ -468,10 +461,7 @@ interface ServiceItemProps {
   secondaryIcon?: React.ReactNode
   title: string
   description: string
-  variants: {
-    hidden: { opacity: number; y?: number }
-    visible: { opacity: number; y?: number; transition: { duration: number; ease: string } }
-  }
+  variants: any
   delay: number
   direction: "left" | "right"
 }
