@@ -2,6 +2,7 @@
 
 import { PulseBeams } from "@/components/ui/pulse-beams";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const beams = [
   {
@@ -198,16 +199,17 @@ export const PulseBeamsFirstDemo = () => {
           gradientColors={gradientColors}
           className="bg-transparent w-full h-full"
         >
-      <button className="bg-slate-800 w-[320px] z-40 h-[120px] no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
-        <span className="absolute inset-0 overflow-hidden rounded-full">
-          <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-        </span>
-        <div className="relative flex justify-center w-[320px] text-center space-x-2 h-[120px] items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 ">
-          <span className="md:text-4xl text-base inline-block bg-clip-text text-transparent bg-gradient-to-r from-neutral-300 via-neutral-600 to-neutral-300">
-            Connect
+      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="z-40">
+        <Link
+          href="/ContactUs"
+          className="relative group inline-flex items-center justify-center w-[320px] h-[120px] rounded-full p-[2px] bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-purple-500 hover:from-cyan-300 hover:via-fuchsia-400 hover:to-purple-400 transition-colors duration-300 shadow-2xl shadow-zinc-900"
+        >
+          <span className="absolute inset-0 blur-xl opacity-40 group-hover:opacity-60 transition-opacity bg-gradient-to-r from-cyan-400/50 via-fuchsia-500/50 to-purple-500/50 rounded-full" />
+          <span className="relative w-full h-full rounded-full bg-zinc-950/90 ring-1 ring-white/10 flex items-center justify-center gap-2">
+            <span className="md:text-4xl text-base bg-clip-text text-transparent bg-gradient-to-r from-neutral-200 via-neutral-400 to-neutral-200">Contact Us</span>
           </span>
-        </div>
-      </button>
+        </Link>
+      </motion.div>
     </PulseBeams>
       </div>
     </div>

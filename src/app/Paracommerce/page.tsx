@@ -1,6 +1,6 @@
 "use client";
 
-import { PulseBeamsFirstDemo } from "@/components/calltoactionpulse";
+import { ContactCtaCard } from "@/components/ui/contact-cta-card";
 import { HaloFeatures } from "@/components/cardGrid";
 // import FeaturesGrid from "@/components/features";
 import DemoOne from "@/components/headerService";
@@ -82,7 +82,7 @@ export default function ParaCommerce() {
           </div>
         </div>
         {/* <D4Carousel /> */}
-        <PulseBeamsFirstDemo/>
+        <ContactCtaCard />
     </>
   );
 }

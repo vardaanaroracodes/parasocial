@@ -303,7 +303,7 @@
 
 
 
-import { DemoOne } from "@/components/ui/demo";
+import { DemoOne } from "@/components/ui/contact";
 
 export default function DemoContactPage() {
   return (
