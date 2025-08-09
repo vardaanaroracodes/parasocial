@@ -34,11 +34,22 @@ const items = [
 const SimplifiedNav = () => {
   const [dropdownOpen, setDropdownOpen] = useState<number | null>(null)
   const [mounted, setMounted] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (!mounted) return
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = mobileOpen ? "hidden" : previousOverflow || ""
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [mobileOpen, mounted])
 
   const handleNavigation = (href: string) => {
     if (href.startsWith('#')) {
@@ -53,6 +64,7 @@ const SimplifiedNav = () => {
   const handleMobileNavigation = (value: string) => {
     if (value) {
       handleNavigation(value)
+      setMobileOpen(false)
     }
   }
 
@@ -68,7 +80,7 @@ const SimplifiedNav = () => {
     <>
       {/* Desktop Navigation */}
       <div className="hidden md:block">
-        <div className="bg-black rounded-full px-5 py-2 border border-orange-900/30 shadow-lg w-fit mx-auto">
+        <div className="rounded-full px-5 py-2 w-fit mx-auto backdrop-blur-md bg-white/5 dark:bg-black/30 supports-[backdrop-filter:blur(0px)]:bg-white/10 border border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
           <div className="flex items-center justify-center space-x-1">
             <div className="text-lg font-bold text-orange-100 mr-6 px-2">
               {mounted ? (
@@ -110,11 +122,11 @@ const SimplifiedNav = () => {
                     </button>
                     
                     {dropdownOpen === index && (
-                      <div className="absolute top-full left-0 mt-2 w-64 bg-gray-900 border border-orange-900/30 rounded-lg shadow-lg z-[9999] py-2">
+                      <div className="absolute top-full left-0 mt-2 w-64 backdrop-blur-md bg-black/60 border border-white/15 rounded-lg shadow-xl z-[9999] py-2">
                         {item.dropdown.map((dropdownItem, dropdownIndex) => (
                           <div
                             key={dropdownIndex}
-                            className="block px-4 py-3 text-sm text-orange-200 hover:bg-orange-500/20 hover:text-orange-400 transition-colors cursor-pointer"
+                            className="block px-4 py-3 text-sm text-orange-200 hover:bg-white/10 hover:text-orange-300 transition-colors cursor-pointer"
                             onClick={() => {
                               closeDropdown()
                               handleNavigation(dropdownItem.href)
@@ -135,7 +147,7 @@ const SimplifiedNav = () => {
                   <div className="py-1.5 px-3 text-orange-200">
                     {mounted ? (
                       <button
-                        className="hover:bg-orange-500/20 hover:text-orange-400 rounded-full transition-all duration-300 cursor-pointer"
+                        className="hover:bg-white/10 hover:text-orange-300 rounded-full transition-all duration-300 cursor-pointer"
                         onClick={() => handleNavigation(item.href)}
                       >
                         {item.label}
@@ -153,7 +165,7 @@ const SimplifiedNav = () => {
       
       {/* Mobile Navigation */}
       <div className="md:hidden">
-        <div className="bg-black rounded-full px-3.5 py-1.5 border border-orange-900/30 shadow-lg">
+        <div className="rounded-full px-3.5 py-1.5 border border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.12)] bg-black">
           <div className="flex items-center justify-between text-orange-100 text-sm">
             {mounted ? (
               <Link href="/" className="font-bold text-orange-100 no-underline hover:text-orange-400 transition-colors inline-flex items-center px-1">
@@ -172,28 +184,61 @@ const SimplifiedNav = () => {
                 />
               </span>
             )}
-            <div className="flex items-center space-x-2">
-              <span>/</span>
-              {mounted ? (
-                <select 
-                  className="bg-transparent border-none text-orange-200 focus:outline-none cursor-pointer hover:text-orange-400 transition-colors"
-                  onChange={(e) => handleMobileNavigation(e.target.value)}
-                  defaultValue=""
-                >
-                  <option value="">Menu</option>
-                  <option value="/">Home</option>
-                  <option value="/AboutUs">About</option>
-                  <option value="/Paracommerce">Para-Commerce</option>
-                  <option value="/Parainfluence">Para-Influence</option>
-                  <option value="/Parastudio">Para-Studio</option>
-                  <option value="/ContactUs">Contact</option>
-                </select>
-              ) : (
-                <span className="text-orange-200">Menu</span>
-              )}
-            </div>
+            {mounted && (
+              <button
+                aria-label="Open menu"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/10 active:scale-95 transition-all text-orange-200"
+                onClick={() => setMobileOpen(true)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                  <path fillRule="evenodd" d="M3.75 5.25A.75.75 0 0 1 4.5 4.5h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm0 7.5a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm.75 6.75a.75.75 0 0 0 0 1.5h15a.75.75 0 0 0 0-1.5h-15Z" clipRule="evenodd" />
+                </svg>
+              </button>
+            )}
           </div>
         </div>
+
+        {/* Mobile fullscreen overlay menu */}
+        {mounted && mobileOpen && (
+          <div className="fixed inset-0 z-[10000]">
+            <div
+              className="absolute inset-0 bg-black/40"
+              onClick={() => setMobileOpen(false)}
+            />
+            <div className="absolute inset-x-4 top-20 rounded-2xl border border-white/15 bg-black shadow-2xl p-4 text-orange-100">
+              <div className="flex items-center justify-between mb-2 px-1">
+                <span className="text-sm uppercase tracking-wider text-orange-300/80">Menu</span>
+                <button
+                  aria-label="Close menu"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/10 active:scale-95 transition-all"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                    <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 1 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+              <div className="divide-y divide-white/10">
+                {[
+                  { label: "Home", href: "/" },
+                  { label: "About", href: "/AboutUs" },
+                  { label: "Para-Commerce", href: "/Paracommerce" },
+                  { label: "Para-Influence", href: "/Parainfluence" },
+                  { label: "Para-Studio", href: "/Parastudio" },
+                  { label: "Contact", href: "/ContactUs" },
+                ].map((link) => (
+                  <button
+                    key={link.href}
+                    className="w-full text-left px-3 py-4 hover:bg-white/10 rounded-xl transition-colors"
+                    onClick={() => handleMobileNavigation(link.href)}
+                  >
+                    <span className="text-base font-medium">{link.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   )

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SimplifiedNav } from "@/components/simplified-nav";
+import { Navbar1 } from "@/components/blocks/shadcnblocks-com-navbar1";
 import { DemoOne } from "@/components/footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +30,31 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider defaultTheme="dark">
-          <SimplifiedNav />
+          <Navbar1
+            logo={{ url: "/", src: "/parasocial-nobg1.png", alt: "Parasocial", title: "Parasocial" }}
+            showLogoTitle={false}
+            logoWidthDesktop={220}
+            logoWidthMobile={170}
+            menu={[
+              { title: "Home", url: "/" },
+              {
+                title: "Services",
+                url: "#",
+                items: [
+                  { title: "Para-Commerce", description: "Where content converts and carts get full", icon: undefined, url: "/Paracommerce" },
+                  { title: "Para-Influence", description: "Amplifying voices that matter", icon: undefined, url: "/Parainfluence" },
+                  { title: "Para-Studio", description: "Where creativity gets real", icon: undefined, url: "/Parastudio" },
+                ],
+              },
+              { title: "About", url: "/AboutUs" },
+              { title: "Contact", url: "/ContactUs" },
+            ]}
+            mobileExtraLinks={[
+              { name: "Press", url: "#" },
+              { name: "Contact", url: "/ContactUs" },
+            ]}
+            auth={{ login: { text: "Log in", url: "#" }, signup: { text: "Sign up", url: "#" } }}
+          />
           {children}
           <DemoOne />
         </ThemeProvider>
