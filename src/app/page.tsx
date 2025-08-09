@@ -33,9 +33,9 @@ export default function Home() {
    </div>
    <div className="flex justify-center mt-6">
      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-       {CardCurtainRevealDemo(text1.text, text1.title)}
-       {CardCurtainRevealDemo(text2.text, text2.title)}
-       {CardCurtainRevealDemo(text3.text, text3.title)}
+       {CardCurtainRevealDemo(text1.text, text1.title, "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop")}
+       {CardCurtainRevealDemo(text2.text, text2.title, "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop")}
+       {CardCurtainRevealDemo(text3.text, text3.title, "https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=1200&auto=format&fit=crop")}
      </div>
    </div>
    {/* <HaloFeatures 

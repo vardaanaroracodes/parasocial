@@ -17,19 +17,19 @@ export default function AboutUs(){
     {
       name: "Ravi Javeri",
       imageUrl: "/ravi.jpeg",
-      linkedinUrl: "https://linkedin.com/in/alexparker",
+      linkedinUrl: "https://www.linkedin.com/in/ravijhaveri/",
       role: "-"
     },
     {
-      name: "Neetant Arora",
+      name: "Neet Arora",
       imageUrl: "/neetant.jpeg",
-      linkedinUrl: "https://linkedin.com/in/sarahwilson",
+      linkedinUrl: "https://www.linkedin.com/in/neet-arora-a875171/",
       role: "-"
     },
     {
-      name: "Shailendra ",
+      name: "Shailendra Agrawal ",
       imageUrl: "/shail.jpeg",
-      linkedinUrl: "https://linkedin.com/in/davidchen",
+      linkedinUrl: "https://www.linkedin.com/in/shailendra-agrawal-86025b66/",
       role: "-"
     }
   ]}

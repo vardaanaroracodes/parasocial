@@ -1,6 +1,7 @@
 import React from 'react';
 import { MediaButton } from "@/components/ui/media-button";
 import { FooterText } from "@/components/footer-text";
+import Link from 'next/link';
 
 export default function CTA() {
   return (
@@ -22,10 +23,12 @@ export default function CTA() {
         mediaUrl="https://www.w3schools.com/howto/rain.mp4"
       /> */}
       <div className="relative z-10">
-        <MediaButton
-          label="Connect Now"
-          mediaUrl="https://i.pinimg.com/originals/71/fb/91/71fb9176f16357776802391df14b4e40.gif"
-        />
+        <Link href="/ContactUs" className="no-underline">
+          <MediaButton
+            label="Connect Now"
+            mediaUrl="https://i.pinimg.com/originals/71/fb/91/71fb9176f16357776802391df14b4e40.gif"
+          />
+        </Link>
       </div>
     </div>
   );
