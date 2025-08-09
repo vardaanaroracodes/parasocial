@@ -146,10 +146,15 @@ export const GooeyNavFixed: React.FC<GooeyNavProps> = ({
     setDropdownOpen(null)
   }
 
-  const handleLinkKeyDown = (e: React.KeyboardEvent, index: number) => {
+  const handleLinkKeyDown = (e: React.KeyboardEvent<HTMLLIElement>, index: number, item: GooeyNavItem) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault()
-      handleClick(e, index)
+      if (item.dropdown) {
+        // Toggle dropdown instead of navigating
+        handleDropdownToggle(index, e as unknown as React.MouseEvent)
+      } else {
+        handleClick(e, index)
+      }
     }
   }
 
@@ -262,16 +267,7 @@ export const GooeyNavFixed: React.FC<GooeyNavProps> = ({
                     handleClick(e, index)
                   }
                 }}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault()
-                    if (item.dropdown) {
-                      handleDropdownToggle(index, e as unknown as React.MouseEvent)
-                    } else {
-                      handleClick(e, index)
-                    }
-                  }
-                }}
+                onKeyDown={(e) => handleLinkKeyDown(e, index, item)}
                 role="menuitem"
                 aria-current={activeIndex === index ? "page" : undefined}
                 aria-haspopup={item.dropdown ? "menu" : undefined}
