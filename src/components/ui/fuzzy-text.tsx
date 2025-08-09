@@ -38,6 +38,7 @@ const FuzzyText = React.forwardRef<
   const canvasRef = (ref as React.RefObject<ExtendedHTMLCanvasElement>) || innerRef
   const { resolvedTheme } = useTheme()
   const textColorRef = useRef<string>("")
+  const scaleRef = useRef<number>(1)
   
   // Get the computed color from CSS variables
   const getComputedColor = () => {
@@ -127,11 +128,42 @@ const FuzzyText = React.forwardRef<
 
       const horizontalMargin = 50
       const verticalMargin = 0
-      canvas.width = offscreenWidth + horizontalMargin * 2
-      canvas.height = tightHeight + verticalMargin * 2
-      ctx.translate(horizontalMargin, verticalMargin)
+      const jitterPadding = 30 // match fuzzRange for symmetric breathing room
 
-      const interactiveLeft = horizontalMargin + xOffset
+      // Set intrinsic canvas size based on content + jitter padding
+      const intrinsicWidth = offscreenWidth + (horizontalMargin + jitterPadding) * 2
+      const intrinsicHeight = tightHeight + verticalMargin * 2
+      canvas.width = intrinsicWidth
+      canvas.height = intrinsicHeight
+      ctx.translate(horizontalMargin + jitterPadding, verticalMargin)
+
+      // Responsively scale canvas to fit parent width (prevents clipping on mobile)
+      const getParentWidth = () => {
+        const parent = canvas.parentElement
+        if (!parent) return window.innerWidth
+        const parentStyle = window.getComputedStyle(parent)
+        const rect = parent.getBoundingClientRect()
+        const paddingLeft = parseFloat(parentStyle.paddingLeft || "0")
+        const paddingRight = parseFloat(parentStyle.paddingRight || "0")
+        const contentWidth = rect.width - paddingLeft - paddingRight
+        return Math.max(1, Math.floor(contentWidth))
+      }
+      const applyResponsiveScale = () => {
+        const parentWidth = getParentWidth()
+        const scale = Math.min(1, parentWidth / intrinsicWidth)
+        scaleRef.current = scale
+        canvas.style.width = `${intrinsicWidth * scale}px`
+        canvas.style.height = `${intrinsicHeight * scale}px`
+        canvas.style.display = "block"
+        canvas.style.maxWidth = "100%"
+        canvas.style.marginLeft = "auto"
+        canvas.style.marginRight = "auto"
+        canvas.style.boxSizing = "border-box"
+        canvas.style.touchAction = "manipulation"
+      }
+      applyResponsiveScale()
+
+      const interactiveLeft = horizontalMargin + jitterPadding + xOffset
       const interactiveTop = verticalMargin
       const interactiveRight = interactiveLeft + textBoundingWidth
       const interactiveBottom = interactiveTop + tightHeight
@@ -176,8 +208,11 @@ const FuzzyText = React.forwardRef<
       const handleMouseMove = (e: MouseEvent) => {
         if (!enableHover) return
         const rect = canvas.getBoundingClientRect()
-        const x = e.clientX - rect.left
-        const y = e.clientY - rect.top
+        const xCss = e.clientX - rect.left
+        const yCss = e.clientY - rect.top
+        const scale = scaleRef.current || 1
+        const x = xCss / scale
+        const y = yCss / scale
         isHovering = isInsideTextArea(x, y)
       }
 
@@ -190,8 +225,11 @@ const FuzzyText = React.forwardRef<
         e.preventDefault()
         const rect = canvas.getBoundingClientRect()
         const touch = e.touches[0]
-        const x = touch.clientX - rect.left
-        const y = touch.clientY - rect.top
+        const xCss = touch.clientX - rect.left
+        const yCss = touch.clientY - rect.top
+        const scale = scaleRef.current || 1
+        const x = xCss / scale
+        const y = yCss / scale
         isHovering = isInsideTextArea(x, y)
       }
 
@@ -208,6 +246,11 @@ const FuzzyText = React.forwardRef<
         canvas.addEventListener("touchend", handleTouchEnd)
       }
 
+      const handleResize = () => {
+        applyResponsiveScale()
+      }
+      window.addEventListener("resize", handleResize)
+
       const cleanup = () => {
         window.cancelAnimationFrame(animationFrameId)
         if (enableHover) {
@@ -216,6 +259,7 @@ const FuzzyText = React.forwardRef<
           canvas.removeEventListener("touchmove", handleTouchMove)
           canvas.removeEventListener("touchend", handleTouchEnd)
         }
+        window.removeEventListener("resize", handleResize)
       }
 
       canvas.cleanupFuzzyText = cleanup
