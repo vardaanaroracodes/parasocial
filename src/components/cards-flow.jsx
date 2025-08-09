@@ -28,8 +28,8 @@ export default function CardsFlow() {
 
   return (
     <main ref={container} className="relative mt-[20vh]">
-        <div className="flex justify-center mb-12">
-          <FooterText text="What Makes Us Different" fontSize="clamp(2rem, 6vw, 3rem)" />
+        <div className="flex justify-center mb-8">
+          <FooterText text="What Makes Us Different" fontSize="clamp(1.5rem, 6vw, 3rem)" />
         </div>
       {
         projects.map( (project, i) => {

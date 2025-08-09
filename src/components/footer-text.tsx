@@ -7,9 +7,10 @@ import { FuzzyText } from "@/components/ui/fuzzy-text"
 interface FooterTextProps {
   text: string
   fontSize?: string
+  className?: string
 }
 
-export default function FooterText({ text, fontSize = "clamp(4rem, 12vw, 12rem)" }: FooterTextProps) {
+export default function FooterText({ text, fontSize = "clamp(4rem, 12vw, 12rem)", className }: FooterTextProps) {
   const [enableHover, setEnableHover] = useState(true)
   const [hoverIntensity, setHoverIntensity] = useState(0.4)
   
@@ -20,6 +21,7 @@ export default function FooterText({ text, fontSize = "clamp(4rem, 12vw, 12rem)"
         enableHover={enableHover}
         color="#f97316" // Orange-500 color to match theme
         fontSize={fontSize}
+        className={className}
       >
         {text}
       </FuzzyText>

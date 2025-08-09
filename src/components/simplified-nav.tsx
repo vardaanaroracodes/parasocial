@@ -68,19 +68,23 @@ const SimplifiedNav = () => {
     <>
       {/* Desktop Navigation */}
       <div className="hidden md:block">
-        <div className="bg-black rounded-full px-6 py-3 border border-orange-900/30 shadow-lg w-fit mx-auto">
+        <div className="bg-black rounded-full px-5 py-2 border border-orange-900/30 shadow-lg w-fit mx-auto">
           <div className="flex items-center justify-center space-x-1">
-            <div className="text-lg font-bold text-orange-100 mr-8">
+            <div className="text-lg font-bold text-orange-100 mr-6 px-2">
               {mounted ? (
                 <Link href="/" className="inline-flex items-center no-underline">
                   <img
-                    src="/parasocial-nobg.png"
-                    alt="Parasocial Logo"
-                    className="h-12 w-auto select-none object-contain drop-shadow-[0_0_6px_rgba(255,130,0,0.35)]"
+                    src="/parasocial-nobg1.png"
+                    alt="Parasocial logo wordmark"
+                    className="w-[180px] mt-4 h-auto select-none object-contain drop-shadow-[0_0_6px_rgba(255,130,0,0.35)] hover:scale-105 transition-transform duration-300"
                   />
                 </Link>
               ) : (
-                <img src="/parasocial.svg" alt="Parasocial Logo" className="h-12 w-auto select-none object-contain drop-shadow-[0_0_6px_rgba(255,130,0,0.35)]" />
+                <img
+                  src="/parasocial-nobg1.png"
+                  alt="Parasocial logo wordmark"
+                  className="w-[180px] mt-4 h-auto select-none object-contain drop-shadow-[0_0_6px_rgba(255,130,0,0.35)]"
+                />
               )}
             </div>
             
@@ -89,7 +93,7 @@ const SimplifiedNav = () => {
                 {item.dropdown && mounted ? (
                   <div className="relative">
                     <button
-                      className="py-2 px-4 text-orange-200 hover:bg-orange-500/20 hover:text-orange-400 rounded-full transition-all duration-300 flex items-center gap-1 cursor-pointer"
+                      className="py-1.5 px-3 text-orange-200 hover:bg-orange-500/20 hover:text-orange-400 rounded-full transition-all duration-300 flex items-center gap-1 cursor-pointer"
                       onClick={() => toggleDropdown(index)}
                     >
                       {item.label}
@@ -128,7 +132,7 @@ const SimplifiedNav = () => {
                     )}
                   </div>
                 ) : (
-                  <div className="py-2 px-4 text-orange-200">
+                  <div className="py-1.5 px-3 text-orange-200">
                     {mounted ? (
                       <button
                         className="hover:bg-orange-500/20 hover:text-orange-400 rounded-full transition-all duration-300 cursor-pointer"
@@ -149,15 +153,23 @@ const SimplifiedNav = () => {
       
       {/* Mobile Navigation */}
       <div className="md:hidden">
-        <div className="bg-black rounded-full px-4 py-2 border border-orange-900/30 shadow-lg">
+        <div className="bg-black rounded-full px-3.5 py-1.5 border border-orange-900/30 shadow-lg">
           <div className="flex items-center justify-between text-orange-100 text-sm">
             {mounted ? (
-              <Link href="/" className="font-bold text-orange-100 no-underline hover:text-orange-400 transition-colors inline-flex items-center">
-                <img src="/parasocial.svg" alt="Parasocial Logo" className="h-10 w-auto select-none object-contain drop-shadow-[0_0_6px_rgba(255,130,0,0.35)]" />
+              <Link href="/" className="font-bold text-orange-100 no-underline hover:text-orange-400 transition-colors inline-flex items-center px-1">
+                <img
+                  src="/parasocial-nobg.png"
+                  alt="Parasocial logo wordmark"
+                  className="w-[150px] h-auto select-none object-contain drop-shadow-[0_0_6px_rgba(255,130,0,0.35)] hover:scale-105 transition-transform duration-300"
+                />
               </Link>
             ) : (
-              <span className="font-bold inline-flex items-center">
-                <img src="/parasocial.svg" alt="Parasocial Logo" className="h-10 w-auto select-none object-contain drop-shadow-[0_0_6px_rgba(255,130,0,0.35)]" />
+              <span className="font-bold inline-flex items-center px-1">
+                <img
+                  src="/parasocial-nobg.png"
+                  alt="Parasocial logo wordmark"
+                  className="w-[150px] h-auto select-none object-contain drop-shadow-[0_0_6px_rgba(255,130,0,0.35)]"
+                />
               </span>
             )}
             <div className="flex items-center space-x-2">
