@@ -6,7 +6,7 @@ import { useScroll } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import { motion } from 'framer-motion';
-import HandWrittenTitleDemo from "@/components/titlestext";
+import { FooterText } from "@/components/footer-text";
 
 export default function CardsFlow() {
   const container = useRef(null);
@@ -28,7 +28,9 @@ export default function CardsFlow() {
 
   return (
     <main ref={container} className="relative mt-[20vh]">
-        <HandWrittenTitleDemo title="What Makes Us Different" triggerOnScroll={true}/>
+        <div className="flex justify-center mb-12">
+          <FooterText text="What Makes Us Different" fontSize="clamp(2rem, 6vw, 3rem)" />
+        </div>
       {
         projects.map( (project, i) => {
           const targetScale = 1 - ( (projects.length - i) * 0.05);

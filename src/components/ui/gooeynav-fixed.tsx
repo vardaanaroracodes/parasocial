@@ -20,6 +20,7 @@ export interface GooeyNavProps {
   animationTime?: number
   particleCount?: number
   particleDistances?: [number, number]
+  particleR?: number
   timeVariance?: number
   initialActiveIndex?: number
   logo?: {
@@ -36,6 +37,7 @@ export const GooeyNavFixed: React.FC<GooeyNavProps> = ({
   animationTime = 600,
   particleCount = 15,
   particleDistances = [90, 10],
+  particleR = 100,
   timeVariance = 300,
   initialActiveIndex = 0,
   logo,
@@ -142,6 +144,13 @@ export const GooeyNavFixed: React.FC<GooeyNavProps> = ({
 
   const closeDropdown = () => {
     setDropdownOpen(null)
+  }
+
+  const handleLinkKeyDown = (e: React.KeyboardEvent, index: number) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault()
+      handleClick(e, index)
+    }
   }
 
   useEffect(() => {

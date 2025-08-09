@@ -5,8 +5,10 @@ import { HaloFeatures } from "@/components/cardGrid";
 // import FeaturesGrid from "@/components/features";
 import DemoOne from "@/components/headerService";
 
-import InteractiveScrambledTextDemo from "@/components/scrambledText";
 import { TextRevealCardPreview } from "@/components/textreveal";
+import { SparklesPreviewColorful } from "@/components/service-hero";
+import { MarqueService } from "@/components/marquee-services";
+import CTA from "@/components/cta-call";
 export default function ParaCommerce() {
   const serviceWords = [
     "Para-Commerce",
@@ -59,10 +61,14 @@ export default function ParaCommerce() {
 
   return (
     <>
-        <DemoOne 
+      <SparklesPreviewColorful
+        mainText="Para-Commerce" 
+        subText="Where Content Converts and Carts Get Full"
+      />
+        {/* <DemoOne 
           words={serviceWords}
           subheading="Where Content Converts and Carts Get Full"
-        />
+        /> */}
         {/* <FeaturesGrid /> */}
         <HaloFeatures
           heading="What's in our Content Cart"
@@ -71,18 +77,17 @@ export default function ParaCommerce() {
           gridCols={2}
           gap={6}
         />
-        <div className="flex flex-col lg:flex-row gap-8 w-full max-w-7xl mx-auto px-4 bg-neutral-950">
-          <div className="flex-1 bg-black">
-            <InteractiveScrambledTextDemo 
-              para="Para-Commerce — where content converts and carts get full. We create shoppable experiences that turn viewers into buyers through strategic content that drives both engagement and sales."
-            />
-          </div>
-          <div className="flex-1">
-            <TextRevealCardPreview/>
-          </div>
+        <div className="w-full min-h-screen bg-black">
+          <TextRevealCardPreview/>
         </div>
         {/* <D4Carousel /> */}
-        <ContactCtaCard />
+        
+        <CTA />
+        <MarqueService
+          topText="Choose Para-Commerce"
+          bottomText="We ain't Kidding."
+          height="h-[600px]"
+        />
     </>
   );
 }

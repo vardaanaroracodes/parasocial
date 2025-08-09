@@ -24,11 +24,11 @@ interface ShowImageListItemProps {
 function RevealImageListItem({ text, images }: ShowImageListItemProps) {
   const container = "absolute right-8 -top-1 z-40 h-20 w-16";
   const effect =
-    "relative duration-500 delay-100 shadow-none group-hover:shadow-xl scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 group-hover:w-full group-hover:h-full w-16 h-16 overflow-hidden transition-all rounded-md";
+    "relative duration-500 delay-100 shadow-none group-hover:shadow-xl group-hover:shadow-orange-500/20 scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 group-hover:w-full group-hover:h-full w-16 h-16 overflow-hidden transition-all rounded-md border border-orange-500/20 group-hover:border-orange-500/40";
 
   return (
     <div className="group relative h-fit w-fit overflow-visible py-8">
-      <h1 className="text-5xl font-black text-foreground transition-all duration-500 group-hover:opacity-40">
+      <h1 className="text-5xl font-black text-orange-100 transition-all duration-500 group-hover:opacity-40 group-hover:text-orange-300">
         {text}
       </h1>
       <div className={container}>
@@ -119,7 +119,7 @@ function RevealImageList() {
     },
   ];
   return (
-    <div className="flex flex-col gap-1 rounded-sm bg-background px-8 py-4">
+    <div className="flex flex-col gap-1 rounded-sm bg-gradient-to-br from-black via-red-950 to-orange-950 px-8 py-4">
       <AnimatedServicesHeader />
       {items.map((item, index) => (
         <RevealImageListItem key={index} text={item.text} images={item.images} />

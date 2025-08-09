@@ -26,8 +26,8 @@ const defaultCards: CardData[] = [
     description: "We help you uncover what's right for your brand to get going",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 13L12 4L21 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M9 21V9L15 3V21" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M3 13L12 4L21 13" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M9 21V9L15 3V21" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     )
   },
@@ -36,8 +36,8 @@ const defaultCards: CardData[] = [
     description: "Deep insights into user behavior engagement and trends",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="3" stroke="white" strokeWidth="2"/>
-        <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="white" strokeWidth="2"/>
+        <circle cx="12" cy="12" r="3" stroke="#fb923c" strokeWidth="2"/>
+        <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="#fb923c" strokeWidth="2"/>
       </svg>
     )
   },
@@ -46,8 +46,8 @@ const defaultCards: CardData[] = [
     description: "Making it more attractive than it could be, engage and deliver",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 12C2 12 5 5 12 5S22 12 22 12S19 19 12 19S2 12 2 12Z" stroke="white" strokeWidth="2"/>
-        <circle cx="12" cy="12" r="3" stroke="white" strokeWidth="2"/>
+        <path d="M2 12C2 12 5 5 12 5S22 12 22 12S19 19 12 19S2 12 2 12Z" stroke="#fb923c" strokeWidth="2"/>
+        <circle cx="12" cy="12" r="3" stroke="#fb923c" strokeWidth="2"/>
       </svg>
     )
   },
@@ -56,7 +56,7 @@ const defaultCards: CardData[] = [
     description: "We don't only build, we create a E-2-E environment for you till the project.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z" stroke="white" strokeWidth="2"/>
+        <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z" stroke="#fb923c" strokeWidth="2"/>
       </svg>
     )
   }
@@ -110,7 +110,7 @@ export function HaloFeatures({
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
             <motion.h2 
-                className="text-4xl md:text-5xl font-bold text-white mb-4"
+                className="text-4xl md:text-5xl font-bold text-orange-300 mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -118,7 +118,7 @@ export function HaloFeatures({
                 {heading}
             </motion.h2>
             <motion.p 
-                className="text-lg text-gray-400 max-w-2xl mx-auto"
+                className="text-lg text-orange-200/70 max-w-2xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}

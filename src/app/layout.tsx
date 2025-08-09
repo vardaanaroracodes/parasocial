@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SimplifiedNav } from "@/components/simplified-nav";
+import { DemoOne } from "@/components/footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
         <ThemeProvider defaultTheme="dark">
           <SimplifiedNav />
           {children}
+          <DemoOne />
         </ThemeProvider>
       </body>
     </html>

@@ -1,10 +1,13 @@
 "use client"
 import HeroSection from "@/components/blocks/hero-section-1";
-import { DemoOne } from "@/components/footer";
 import { CardCurtainRevealDemo } from "@/components/landingcards";
 import HandWrittenTitleDemo from "@/components/titlestext";
 import RevealImageListDemo from "@/components/services";
 import CardsFlow from "@/components/cards-flow";
+import { LandingHero } from "@/components/landing-hero";
+import { HoverSliderDemo } from "@/components/replacement";
+import { FooterText } from "@/components/footer-text";
+import CTA from "@/components/cta-call";
 const text1 = {
   title: "Who Are We ?",
   text: "Founded in 2025, Parasocial is an influencer-first agency, and a content production company based out of India. Embodying an Influencer & Social First Approach @ Parasocial we embrace all the complexities and deliver stories to our clients with redefining narratives distilled into brief and powerful messages for the brand.",
@@ -22,8 +25,12 @@ export default function Home() {
 
   return (
    <>
-   <HeroSection/>
-   <HandWrittenTitleDemo title="Why Us" triggerOnScroll={true}/>
+   <LandingHero/>
+   <div className=" mt-6"></div>
+   {/* <HeroSection/> */}
+   <div className="flex justify-center py-12">
+     <FooterText text="Why Us" fontSize="clamp(2rem, 6vw, 3rem)" />
+   </div>
    <div className="flex justify-center mt-6">
      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
        {CardCurtainRevealDemo(text1.text, text1.title)}
@@ -39,8 +46,10 @@ export default function Home() {
    {/* <CenteredLogoDemo /> */}
    <CardsFlow/>
   {/* <Gallery4Demo/> */}
-   <RevealImageListDemo/>
-   <DemoOne/>
+
+   <HoverSliderDemo />
+   <CTA/>
+   {/* <RevealImageListDemo/> */}
    </>
   );
 }

@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useRef, useState } from "react";
+import { FooterText } from "@/components/footer-text";
 
 interface LinkItem {
   href: string;
@@ -82,21 +83,21 @@ const Footer: React.FC<FooterProps> = ({
   return (
     <footer
       ref={footerRef}
-      className="bg-background text-foreground relative flex flex-col w-full h-auto justify-between select-none border-t"
+      className="bg-black text-orange-100 relative flex flex-col w-full h-auto justify-between select-none border-t border-orange-900/30"
     >
       <div className="container mx-auto flex flex-col md:flex-row justify-between w-full gap-4 py-8 px-4">
         <div className="space-y-2">
           <ul className="flex flex-wrap gap-4">
             {leftLinks.map((link, index) => (
               <li key={index}>
-                <a href={link.href} className="text-sm hover:text-primary transition-colors">
+                <a href={link.href} className="text-sm text-orange-200 hover:text-orange-400 transition-colors">
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
-          <p className="text-sm mt-4 flex items-center gap-x-1 text-muted-foreground">
-            <svg className="size-3" viewBox="0 0 80 80">
+          <p className="text-sm mt-4 flex items-center gap-x-1 text-orange-300">
+            <svg className="size-3 text-orange-500" viewBox="0 0 80 80">
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -111,18 +112,23 @@ const Footer: React.FC<FooterProps> = ({
           <ul className="flex flex-wrap gap-4">
             {rightLinks.map((link, index) => (
               <li key={index}>
-                <a href={link.href} className="text-sm hover:text-primary transition-colors">
+                <a href={link.href} className="text-sm text-orange-200 hover:text-orange-400 transition-colors">
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
           <div className="text-right mt-4">
-            <button className="text-sm hover:underline inline-flex items-center text-muted-foreground hover:text-foreground transition-colors">
+            <button className="text-sm hover:underline inline-flex items-center text-orange-300 hover:text-orange-100 transition-colors">
               Back to top
             </button>
           </div>
         </div>
+      </div>
+      
+      {/* Large Footer Text */}
+      <div className="text-center py-12 px-4 flex justify-center">
+        <FooterText text="Parasocial" />
       </div>
       
       <div
@@ -135,7 +141,7 @@ const Footer: React.FC<FooterProps> = ({
             <div
               key={index}
               ref={(el) => { waveRefs.current[index] = el; }}
-              className="wave-segment bg-foreground"
+              className="wave-segment bg-gradient-to-r from-orange-500 via-red-500 to-orange-600"
               style={{
                 height: `${index + 1}px`,
                 transition: "transform 0.1s ease, background-color 0.2s ease",
