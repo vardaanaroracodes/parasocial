@@ -72,11 +72,15 @@ const SimplifiedNav = () => {
           <div className="flex items-center justify-center space-x-1">
             <div className="text-lg font-bold text-orange-100 mr-8">
               {mounted ? (
-                <Link href="/" className="text-orange-100 no-underline hover:text-orange-400 transition-colors">
-                  PARASOCIAL
+                <Link href="/" className="inline-flex items-center no-underline">
+                  <img
+                    src="/parasocial-nobg.png"
+                    alt="Parasocial Logo"
+                    className="h-12 w-auto select-none object-contain drop-shadow-[0_0_6px_rgba(255,130,0,0.35)]"
+                  />
                 </Link>
               ) : (
-                "PARASOCIAL"
+                <img src="/parasocial.svg" alt="Parasocial Logo" className="h-12 w-auto select-none object-contain drop-shadow-[0_0_6px_rgba(255,130,0,0.35)]" />
               )}
             </div>
             
@@ -148,9 +152,13 @@ const SimplifiedNav = () => {
         <div className="bg-black rounded-full px-4 py-2 border border-orange-900/30 shadow-lg">
           <div className="flex items-center justify-between text-orange-100 text-sm">
             {mounted ? (
-              <Link href="/" className="font-bold text-orange-100 no-underline hover:text-orange-400 transition-colors">PARASOCIAL</Link>
+              <Link href="/" className="font-bold text-orange-100 no-underline hover:text-orange-400 transition-colors inline-flex items-center">
+                <img src="/parasocial.svg" alt="Parasocial Logo" className="h-10 w-auto select-none object-contain drop-shadow-[0_0_6px_rgba(255,130,0,0.35)]" />
+              </Link>
             ) : (
-              <span className="font-bold">PARASOCIAL</span>
+              <span className="font-bold inline-flex items-center">
+                <img src="/parasocial.svg" alt="Parasocial Logo" className="h-10 w-auto select-none object-contain drop-shadow-[0_0_6px_rgba(255,130,0,0.35)]" />
+              </span>
             )}
             <div className="flex items-center space-x-2">
               <span>/</span>
