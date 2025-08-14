@@ -119,7 +119,16 @@ const Footer: React.FC<FooterProps> = ({
             ))}
           </ul>
           <div className="text-right mt-4">
-            <button className="text-sm hover:underline inline-flex items-center text-orange-300 hover:text-orange-100 transition-colors">
+            <button
+              className="text-sm hover:underline inline-flex items-center text-orange-300 hover:text-orange-100 transition-colors"
+              aria-label="Back to top"
+              suppressHydrationWarning
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+            >
               Back to top
             </button>
           </div>

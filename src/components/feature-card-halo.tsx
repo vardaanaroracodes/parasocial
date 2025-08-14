@@ -274,16 +274,16 @@ export const HaloCard = ({
             </motion.h3>
 
             <motion.p
-              className="text-sm mb-6 text-orange-200/70"
+              className="text-sm mb-6 text-white/90 font-semibold"
               style={{
                 lineHeight: 1.5,
-                fontWeight: 350,
+                fontWeight: 600,
               }}
               initial={{ filter: "blur(3px)", opacity: 0.7 }}
               animate={{
                 textShadow: isHovered ? "0 1px 2px rgba(255,69,0,0.1)" : "none",
                 filter: "blur(0px)",
-                opacity: 0.85,
+                opacity: 0.95,
                 transition: { duration: 1.2, delay: 0.4 }
               }}
             >

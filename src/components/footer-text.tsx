@@ -1,8 +1,6 @@
 "use client"
 
-import * as React from "react"
-import { useState } from "react"
-import { FuzzyText } from "@/components/ui/fuzzy-text"
+// Animated gradient FooterText with the same API
 
 interface FooterTextProps {
   text: string
@@ -11,20 +9,28 @@ interface FooterTextProps {
 }
 
 export default function FooterText({ text, fontSize = "clamp(4rem, 12vw, 12rem)", className }: FooterTextProps) {
-  const [enableHover, setEnableHover] = useState(true)
-  const [hoverIntensity, setHoverIntensity] = useState(0.4)
-  
   return (
-      <FuzzyText
-        baseIntensity={0.2}
-        hoverIntensity={hoverIntensity}
-        enableHover={enableHover}
-        color="#f97316" // Orange-500 color to match theme
-        fontSize={fontSize}
-        className={className}
-      >
+    <div className={["select-none", className].filter(Boolean).join(" ")}> 
+      <span className="gradient-text font-extrabold tracking-tight" style={{ fontSize }}>
         {text}
-      </FuzzyText>
+      </span>
+      <style jsx>{`
+        .gradient-text {
+          background: linear-gradient(-45deg, #fb923c, #f97316, #ef4444, #f97316, #fb923c);
+          background-size: 200% 200%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: gradientShift 6s ease infinite;
+          letter-spacing: -0.02em;
+        }
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}</style>
+    </div>
   )
 }
 

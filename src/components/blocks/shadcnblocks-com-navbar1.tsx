@@ -228,28 +228,24 @@ const renderMenuItem = (item: MenuItem) => {
         <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
         <NavigationMenuContent>
           <ul className="w-80 p-3">
-            <NavigationMenuLink>
-              {item.items.map((subItem) => (
-                <li key={subItem.title}>
+            {item.items.map((subItem) => (
+              <li key={subItem.title}>
+                <NavigationMenuLink asChild>
                   <a
                     className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
                     href={subItem.url}
                   >
                     {subItem.icon}
                     <div>
-                      <div className="text-sm font-semibold">
-                        {subItem.title}
-                      </div>
+                      <div className="text-sm font-semibold">{subItem.title}</div>
                       {subItem.description && (
-                        <p className="text-sm leading-snug text-muted-foreground">
-                          {subItem.description}
-                        </p>
+                        <p className="text-sm leading-snug text-muted-foreground">{subItem.description}</p>
                       )}
                     </div>
                   </a>
-                </li>
-              ))}
-            </NavigationMenuLink>
+                </NavigationMenuLink>
+              </li>
+            ))}
           </ul>
         </NavigationMenuContent>
       </NavigationMenuItem>
@@ -257,13 +253,16 @@ const renderMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <a
-      key={item.title}
-      className="group inline-flex h-8 w-max items-center justify-center rounded-md bg-transparent px-3 py-1.5 text-sm font-medium text-foreground/90 transition-colors hover:bg-white/10"
-      href={item.url}
-    >
-      {item.title}
-    </a>
+    <NavigationMenuItem key={item.title}>
+      <NavigationMenuLink asChild>
+        <a
+          className="group inline-flex h-8 w-max items-center justify-center rounded-md bg-transparent px-3 py-1.5 text-sm font-medium text-foreground/90 transition-colors hover:bg-white/10"
+          href={item.url}
+        >
+          {item.title}
+        </a>
+      </NavigationMenuLink>
+    </NavigationMenuItem>
   );
 };
 

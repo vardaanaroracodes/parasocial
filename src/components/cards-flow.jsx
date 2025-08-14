@@ -28,7 +28,7 @@ export default function CardsFlow() {
 
   return (
     <main ref={container} className="relative mt-[20vh]">
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-10 md:mb-16 relative z-10">
           <FooterText text="What Makes Us Different" fontSize="clamp(1.5rem, 6vw, 3rem)" />
         </div>
       {
