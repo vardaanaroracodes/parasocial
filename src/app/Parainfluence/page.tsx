@@ -68,7 +68,7 @@ export default function ServicesLanding() {
   return (
     <>
       <SparklesPreviewColorful
-        mainText="Para-Influence"
+        mainText="Para-Fluence"
         subText="Pragmatically Influencing the Future"
       />
         {/* <DemoOne 
