@@ -17,7 +17,7 @@ const items = [
         description: "Where content converts and carts get full",
       },
       {
-        label: "Para-Influence",
+        label: "Para-Fluence",
         href: "/Parainfluence",
         description: "Amplifying voices that matter",
       },
@@ -172,7 +172,7 @@ const SimplifiedNav = () => {
                   <option value="/">Home</option>
                   <option value="/AboutUs">About</option>
                   <option value="/Paracommerce">Para-Commerce</option>
-                  <option value="/Parainfluence">Para-Influence</option>
+                  <option value="/Parainfluence">Para-Fluence</option>
                   <option value="/Parastudio">Para-Studio</option>
                   <option value="/ContactUs">Contact</option>
                 </select>

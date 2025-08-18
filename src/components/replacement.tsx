@@ -7,7 +7,7 @@ import { FooterText } from "@/components/footer-text"
   const SLIDES = [
   {
     id: "slide-1",
-    title: "Para-Influence",
+  title: "Para-Fluence",
     imageUrl:
       "https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=2486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },

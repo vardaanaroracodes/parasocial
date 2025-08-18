@@ -12,7 +12,7 @@ import CTA from "@/components/cta-call";
 
 export default function ServicesLanding() {
   const serviceWords = [
-    "Para-Influence",
+  "Para-Fluence",
    
   ];
 
@@ -88,13 +88,13 @@ export default function ServicesLanding() {
             text="You bring the audience"
             revealText="We bring the influence"
             title="Authentic connections drive real results."
-            description="Para-Influence — where genuine partnerships create lasting impact. We connect brands with authentic voices who resonate with their audience, turning followers into loyal customers through strategic influencer collaborations."
+            description="Para-Fluence — where genuine partnerships create lasting impact. We connect brands with authentic voices who resonate with their audience, turning followers into loyal customers through strategic influencer collaborations."
           />
         </div>
         <D4Carousel /> 
         <CTA />
         <MarqueService
-          topText="Choose Para-Influence"
+          topText="Choose Para-Fluence"
           bottomText="Authentic Influence, Real Results"
           height="h-[600px]"
         />

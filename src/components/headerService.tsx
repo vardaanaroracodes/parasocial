@@ -6,7 +6,7 @@ interface DemoOneProps {
 }
 
 export default function DemoOne({ 
-  words = ["Para-Influence"], 
+  words = ["Para-Fluence"], 
   subheading = "Pragmatically Influencing the Future" 
 }: DemoOneProps) {
   return (

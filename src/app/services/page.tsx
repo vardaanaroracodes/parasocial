@@ -8,7 +8,7 @@ import { D4Carousel } from "@/components/ruler";
 
 export default function ServicesLanding() {
   const serviceWords = [
-    "Para-Influence",
+  "Para-Fluence",
    
   ];
 
