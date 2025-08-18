@@ -37,7 +37,7 @@ export default function AboutUs(){
         />
         <CareersSection />
         <MarqueService
-            topText="Join Parqsquad"
+            topText="Join Parasquad"
           bottomText="We know you got it."
           height="h-[600px]"
         />

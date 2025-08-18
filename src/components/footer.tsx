@@ -7,12 +7,10 @@ const DemoOne = () => {
             { href: "/privacy-policy", label: "Privacy policy" },
           ]}
           rightLinks={[
-            { href: "/careers", label: "Careers" },
-            { href: "/about", label: "About" },
-            { href: "/help-center", label: "Help Center" },
+            { href: "/AboutUs", label: "About" },
+            { href: "/AboutUs", label: "Careers" },
             { href: "https://x.com/taher_max_", label: "Twitter" },
-            { href: "https://www.instagram.com/taher_max_", label: "Instagram" },
-            { href: "https://github.com/tahermaxse", label: "GitHub" },
+            { href: "https://www.instagram.com/taher_max_", label: "Instagram" }
           ]}
           copyrightText="Parasocial 2025. All Rights Reserved"
           barCount={23}
